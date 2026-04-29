@@ -18,7 +18,7 @@ public:
     void AddContact(const Models::Contact&);
     void UpdateContact(int, const Models::Contact&);
     void DeleteContact(int index);
-    std::optional<QPair<QString, QString>> ContactListWidget::GetCurrentNameAndSurname() const;
+    std::optional<QPair<QString, QString>> GetCurrentNameAndSurname() const;
     const Models::Contact* ContactAt(int index) const;
 
     void Update(const QVector<Models::Contact>& contacts);
