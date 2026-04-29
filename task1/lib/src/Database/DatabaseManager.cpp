@@ -7,7 +7,7 @@ inline QString getHomePath()
 {
     QString result;
 #ifdef _WIN32
-    result = QString(std::getenv("USERPROFILE")) + "//";
+    result = QString(std::getenv("USERPROFILE")) + "\\";
 #else
     result = QString(getenv("HOME")) + "/";
 #endif

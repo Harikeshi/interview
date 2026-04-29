@@ -1,4 +1,4 @@
-#include <../include/ContactsLib/Utilities/Validator.hpp>
+#include <ContactsLib/Utilities/Validator.hpp>
 #include <gtest/gtest.h>
 
 TEST(ValidatorTest, ValidateEmailValid)

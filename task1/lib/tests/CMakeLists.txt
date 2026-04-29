@@ -8,5 +8,5 @@ find_package(GTest CONFIG REQUIRED)
 #-------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} ${SOURCES})
 #-------------------------------------------------------------------------------
-target_link_libraries(${PROJECT_NAME} PUBLIC GTest::gtest GTest::gtest_main InterviewLib)
+target_link_libraries(${PROJECT_NAME} PUBLIC GTest::gtest GTest::gtest_main ContactsLib)
 #-------------------------------------------------------------------------------
