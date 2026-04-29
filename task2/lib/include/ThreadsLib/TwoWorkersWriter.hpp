@@ -4,6 +4,10 @@
 
 #include <fstream>
 #include <mutex>
+#include <memory>
+#include <thread>
+#include <condition_variable>
+#include <atomic>
 
 class TwoWorkersWriter
 {

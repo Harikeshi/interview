@@ -7,9 +7,9 @@ inline QString getHomePath()
 {
     QString result;
 #ifdef _WIN32
-    result = QString(std::getenv("USERPROFILE"));
+    result = QString(std::getenv("USERPROFILE")) + "//";
 #else
-    result = QString(getenv("HOME"));
+    result = QString(getenv("HOME")) + "/";
 #endif
     return result;
 }
@@ -18,7 +18,7 @@ using Contact = Models::Contact;
 DatabaseManager::DatabaseManager(Type type, QString connString)
 {
     if (type == Json)
-        repository = std::make_unique<JsonRepository>(connString != nullptr ? connString : getHomePath() + "\\contacts.json");
+        repository = std::make_unique<JsonRepository>(connString != nullptr ? connString : getHomePath() + "contacts.json");
     else if (type == SQL)
         repository = std::make_unique<SQLRepository>(connString != nullptr ? connString : "");
 }

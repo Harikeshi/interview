@@ -4,14 +4,15 @@
 #include <iostream>
 #include <mutex>
 #include <string>
+#include <memory>
 
 inline std::string getHomePath()
 {
     std::string result;
 #ifdef _WIN32
-    result = std::string(std::getenv("USERPROFILE"));
+    result = std::string(std::getenv("USERPROFILE")) + "\\";
 #else
-    result = std::string(getenv("HOME"));
+    result = std::string(getenv("HOME")) + "/";
 #endif
     return result;
 }
@@ -30,14 +31,14 @@ void TwoWorkersWriter::SetLimit(int number)
 
 void TwoWorkersWriter::start()
 {
-    resultFile.open(getHomePath() + "\\Result.txt");
+    resultFile.open(getHomePath() + "Result.txt");
     {
         std::lock_guard lk(threadMutex);
         activeThreads = 2;
     }
 
-    thread1 = std::thread(&TwoWorkersWriter::worker, this, getHomePath() + "\\Result1.txt");
-    thread2 = std::thread(&TwoWorkersWriter::worker, this, getHomePath() + "\\Result2.txt");
+    thread1 = std::thread(&TwoWorkersWriter::worker, this, getHomePath() + "Result1.txt");
+    thread2 = std::thread(&TwoWorkersWriter::worker, this, getHomePath() + "Result2.txt");
 }
 
 void TwoWorkersWriter::wait()
